@@ -7,6 +7,7 @@ import org.testng.Assert;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.Keys;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -20,10 +21,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.io.FileUtils;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 public class TC_Sneha {
 
     WebDriver driver;
     Properties prop;
+    ExtentReports extent;
+    ExtentTest test;
 
     void sleep(long time) {
         try { Thread.sleep(time); } catch (Exception ignored) {}
@@ -63,10 +70,19 @@ public class TC_Sneha {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+
+        // NEW: Initialize ExtentReports with the specified report name
+        if (extent == null) {
+            extent = new ExtentReports();
+            ExtentSparkReporter spark = new ExtentSparkReporter(System.getProperty("user.dir") + "\\Nykaa_Capstone_Project_Report_Sneha.html");
+            extent.attachReporter(spark);
+        }
+        test = extent.createTest("TC_Sneha_tc1");
     }
     @AfterMethod
     public void tearDown() {
         try { driver.quit(); } catch (Exception ignored) {}
+        try { if (extent != null) extent.flush(); } catch (Exception ignored) {}
     }
     @Test
     public void tc1() {
@@ -121,8 +137,12 @@ public class TC_Sneha {
         driver.findElement(getBy("proceed.btn")).click();
         sleep(2000);
 
-        try { capturescreenshot(driver); } catch (Exception ignored) {}
+        try {
+            String shot = capturescreenshot(driver);
+            if (test != null) test.pass("Proceeded to next page").addScreenCaptureFromPath(shot);
+        } catch (Exception ignored) {}
 
         Assert.assertTrue(true);
+        if (test != null) test.pass("TC_Sneha_tc1 completed");
     }
 }

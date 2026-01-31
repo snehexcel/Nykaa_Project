@@ -19,10 +19,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.io.FileUtils;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 public class TC_Raghav {
 
     private WebDriver driver;
     private Properties prop;
+    private ExtentReports extent;
+    private ExtentTest test;
 
     @BeforeMethod
     public void setUp() throws Exception {
@@ -32,6 +38,13 @@ public class TC_Raghav {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().setSize(new Dimension(1296, 688));
+
+        if (extent == null) {
+            extent = new ExtentReports();
+            ExtentSparkReporter spark = new ExtentSparkReporter(System.getProperty("user.dir") + "\\Nykaa_Capstone_Project_Report_Raghav.html");
+            extent.attachReporter(spark);
+        }
+        test = extent.createTest("TC_Raghav_tc3");
     }
 
     @AfterMethod
@@ -40,6 +53,7 @@ public class TC_Raghav {
             if (driver != null) capturescreenshot(driver);
         } catch (Exception ignored) {}
         if (driver != null) driver.quit();
+        try { if (extent != null) extent.flush(); } catch (Exception ignored) {}
     }
 
     private String capturescreenshot(WebDriver driver) throws Exception {
@@ -179,9 +193,11 @@ public class TC_Raghav {
         sleep(3000);
 
         try {
-            capturescreenshot(driver);
+            String shot = capturescreenshot(driver);
+            if (test != null) test.pass("Proceeded to next page").addScreenCaptureFromPath(shot);
         } catch (Exception ignored) {}
 
         Assert.assertTrue(true);
+        if (test != null) test.pass("TC_Raghav_tc3 completed");
     }
 }

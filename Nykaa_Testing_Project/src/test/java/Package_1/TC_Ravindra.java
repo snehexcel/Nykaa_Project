@@ -26,6 +26,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.io.FileUtils;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 public class TC_Ravindra {
 
     private WebDriver driver;
@@ -33,6 +37,8 @@ public class TC_Ravindra {
     private JavascriptExecutor js;
     private Actions actions;
     private Properties prop;
+    private ExtentReports extent;
+    private ExtentTest test;
 
     private String gp(String key) { return prop.getProperty(key, ""); }
 
@@ -136,19 +142,26 @@ public class TC_Ravindra {
         wait = new WebDriverWait(driver, Duration.ofSeconds(12));
         js = (JavascriptExecutor) driver;
         actions = new Actions(driver);
+
+        if (extent == null) {
+            extent = new ExtentReports();
+            ExtentSparkReporter spark = new ExtentSparkReporter(System.getProperty("user.dir") + "\\Nykaa_Capstone_Project_Report_Ravindra.html");
+            extent.attachReporter(spark);
+        }
+        test = extent.createTest("TC_Ravindra_tc2");
     }
 
     @AfterMethod
     public void tearDown() {
         if (driver != null) try { driver.quit(); } catch (Exception ignored) {}
+        try { if (extent != null) extent.flush(); } catch (Exception ignored) {}
     }
 
     @Test
     public void tc2() {
         driver.get(gp("base.url"));
-        pageReady()
+        pageReady();
 
-        ;
         openPossiblyNewTab(by("home.menu.ninth.link"));
         click(by("category.outline.wrapper"));
         pageReady();
@@ -183,7 +196,11 @@ public class TC_Ravindra {
 
         click(by("proceed.btn"));
         pageReady();
-        try { capturescreenshot(driver); } catch (Exception ignored) {}
+        try {
+            String shot = capturescreenshot(driver);
+            if (test != null) test.pass("Proceeded to next page").addScreenCaptureFromPath(shot);
+        } catch (Exception ignored) {}
         Assert.assertTrue(true);
+        if (test != null) test.pass("TC_Ravindra_tc2 completed");
     }
 }

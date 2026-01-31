@@ -20,10 +20,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.io.FileUtils;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 public class TC_Ritika {
 
     WebDriver driver;
     Properties prop;
+    ExtentReports extent;
+    ExtentTest test;
 
     void sleep(long time) {
         try { Thread.sleep(time); } catch (Exception ignored) {}
@@ -63,10 +69,18 @@ public class TC_Ritika {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+
+        if (extent == null) {
+            extent = new ExtentReports();
+            ExtentSparkReporter spark = new ExtentSparkReporter(System.getProperty("user.dir") + "\\Nykaa_Capstone_Project_Report_Ritika.html");
+            extent.attachReporter(spark);
+        }
+        test = extent.createTest("TC_Ritika_tc1");
     }
     @AfterMethod
     public void tearDown() {
         try { driver.quit(); } catch (Exception ignored) {}
+        try { if (extent != null) extent.flush(); } catch (Exception ignored) {}
     }
     @Test
     public void tc1() {
@@ -121,8 +135,12 @@ public class TC_Ritika {
         driver.findElement(getBy("proceed.btn")).click();
         sleep(2000);
 
-        try { capturescreenshot(driver); } catch (Exception ignored) {}
+        try {
+            String shot = capturescreenshot(driver);
+            if (test != null) test.pass("Proceeded to next page").addScreenCaptureFromPath(shot);
+        } catch (Exception ignored) {}
 
         Assert.assertTrue(true);
+        if (test != null) test.pass("TC_Ritika_tc1 completed");
     }
 }
