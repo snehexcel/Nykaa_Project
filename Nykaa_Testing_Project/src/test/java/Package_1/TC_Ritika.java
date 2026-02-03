@@ -40,6 +40,7 @@ public class TC_Ritika {
 
         if (value.startsWith("name="))  return By.name(value.substring(5));
         if (value.startsWith("css="))   return By.cssSelector(value.substring(4));
+        
         if (value.startsWith("xpath=")) return By.xpath(value.substring(6));
 
         return By.xpath(value);

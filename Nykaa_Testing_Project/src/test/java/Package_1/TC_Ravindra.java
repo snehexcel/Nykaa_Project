@@ -49,6 +49,7 @@ public class TC_Ravindra {
         String type = p[0].trim().toLowerCase(), value = p[1].trim();
         switch (type) {
             case "id": return By.id(value);
+            
             case "name": return By.name(value);
             case "css": return By.cssSelector(value);
             case "xpath": return By.xpath(value);

@@ -41,6 +41,7 @@ public class TC_Raghav {
 
         if (extent == null) {
             extent = new ExtentReports();
+            
             ExtentSparkReporter spark = new ExtentSparkReporter(System.getProperty("user.dir") + "\\Nykaa_Capstone_Project_Report_Raghav.html");
             extent.attachReporter(spark);
         }

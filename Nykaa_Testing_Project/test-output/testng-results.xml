@@ -1,25 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-01-31T11:22:28 IST" name="Default suite" finished-at="2026-01-31T11:23:03 IST" duration-ms="35836">
+  <suite started-at="2026-02-03T15:26:23 IST" name="Suite" finished-at="2026-02-03T15:29:17 IST" duration-ms="173527">
     <groups>
     </groups>
-    <test started-at="2026-01-31T11:22:28 IST" name="Default test" finished-at="2026-01-31T11:23:03 IST" duration-ms="35836">
+    <test started-at="2026-02-03T15:26:23 IST" name="Test_case" finished-at="2026-02-03T15:29:17 IST" duration-ms="173527">
       <class name="Package_1.TC_Raghav">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:Package_1.TC_Raghav@77c2494c]" started-at="2026-01-31T11:22:28 IST" name="setUp" finished-at="2026-01-31T11:22:31 IST" duration-ms="2931" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:Package_1.TC_Raghav@2002fc1d]" started-at="2026-02-03T15:27:02 IST" name="setUp" finished-at="2026-02-03T15:27:04 IST" duration-ms="2435" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="tc3()[pri:0, instance:Package_1.TC_Raghav@77c2494c]" started-at="2026-01-31T11:22:31 IST" name="tc3" finished-at="2026-01-31T11:23:02 IST" duration-ms="31534" status="PASS">
+        <test-method signature="tc3()[pri:0, instance:Package_1.TC_Raghav@2002fc1d]" started-at="2026-02-03T15:27:04 IST" name="tc3" finished-at="2026-02-03T15:27:47 IST" duration-ms="42907" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tc3 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Package_1.TC_Raghav@77c2494c]" started-at="2026-01-31T11:23:02 IST" name="tearDown" finished-at="2026-01-31T11:23:03 IST" duration-ms="1326" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Package_1.TC_Raghav@2002fc1d]" started-at="2026-02-03T15:27:47 IST" name="tearDown" finished-at="2026-02-03T15:27:48 IST" duration-ms="1085" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- Package_1.TC_Raghav -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="Package_1.TC_Ravindra">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Package_1.TC_Ravindra@4116aac9]" started-at="2026-02-03T15:26:23 IST" name="setup" finished-at="2026-02-03T15:26:27 IST" duration-ms="3716" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="tc2()[pri:0, instance:Package_1.TC_Ravindra@4116aac9]" started-at="2026-02-03T15:26:27 IST" name="tc2" finished-at="2026-02-03T15:27:00 IST" duration-ms="33234" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tc2 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Package_1.TC_Ravindra@4116aac9]" started-at="2026-02-03T15:27:00 IST" name="tearDown" finished-at="2026-02-03T15:27:02 IST" duration-ms="1308" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- Package_1.TC_Ravindra -->
+      <class name="Package_1.TC_Ritika">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:Package_1.TC_Ritika@6f4a47c7]" started-at="2026-02-03T15:28:35 IST" name="setUp" finished-at="2026-02-03T15:28:37 IST" duration-ms="2206" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="tc1()[pri:0, instance:Package_1.TC_Ritika@6f4a47c7]" started-at="2026-02-03T15:28:37 IST" name="tc1" finished-at="2026-02-03T15:29:15 IST" duration-ms="38428" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tc1 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Package_1.TC_Ritika@6f4a47c7]" started-at="2026-02-03T15:29:15 IST" name="tearDown" finished-at="2026-02-03T15:29:17 IST" duration-ms="1607" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- Package_1.TC_Ritika -->
+      <class name="Package_1.TC_Sneha">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:Package_1.TC_Sneha@69453e37]" started-at="2026-02-03T15:27:48 IST" name="setUp" finished-at="2026-02-03T15:27:50 IST" duration-ms="2226" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="tc1()[pri:0, instance:Package_1.TC_Sneha@69453e37]" started-at="2026-02-03T15:27:50 IST" name="tc1" finished-at="2026-02-03T15:28:33 IST" duration-ms="43250" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tc1 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Package_1.TC_Sneha@69453e37]" started-at="2026-02-03T15:28:33 IST" name="tearDown" finished-at="2026-02-03T15:28:35 IST" duration-ms="1063" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- Package_1.TC_Sneha -->
+    </test> <!-- Test_case -->
+  </suite> <!-- Suite -->
 </testng-results>

@@ -37,6 +37,7 @@ public class TC_Sneha {
     }
     By getBy(String key) {
         String value = prop.getProperty(key);
+        
         if (value == null) return By.xpath("//html");
 
         if (value.startsWith("name="))  return By.name(value.substring(5));
