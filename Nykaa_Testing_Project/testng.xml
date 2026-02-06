@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="Test_case">
+  <test thread-count="5" name="Test">
     <classes>
       <class name="Package_1.TC_Ravindra"/>
       <class name="Package_1.TC_Raghav"/>
       <class name="Package_1.TC_Sneha"/>
       <class name="Package_1.TC_Ritika"/>
     </classes>
-  </test> <!-- Test_case -->
+  </test> <!-- Test -->
 </suite> <!-- Suite -->

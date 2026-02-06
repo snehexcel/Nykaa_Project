@@ -153,7 +153,7 @@ public class TC_Raghav {
 
         click(by("category.outline.wrapper"));
         click(by("filter.open.first"));
-        click(by("filter.option.92"));
+        click(by("filter.option.80"));
 
         boolean openSame = Boolean.parseBoolean(prop.getProperty("product.openSameTab", "false"));
 
