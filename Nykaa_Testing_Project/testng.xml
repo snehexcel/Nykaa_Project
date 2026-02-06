@@ -6,6 +6,7 @@
       <class name="Package_1.TC_Ravindra"/>
       <class name="Package_1.TC_Raghav"/>
       <class name="Package_1.TC_Sneha"/>
+      <class name="Package_1.NewTest"/>
       <class name="Package_1.TC_Ritika"/>
     </classes>
   </test> <!-- Test -->
